@@ -1,10 +1,11 @@
-FROM eywalker/tensorflow-jupyter:v0.11.0rc0
+FROM eywalker/tensorflow-jupyter:v1.0.0rc0
 
 RUN pip3 install seaborn
-RUN pip3 install sklearn
+RUN pip3 install -U scikit-learn
+RUN pip3 install pandas_datareader
+RUN pip3 install imblearn
+RUN pip3 install xgboost
 RUN pip3 install scipy
 
-WORKDIR /src
-
-ADD . /src/learning_plasticity
-RUN pip3 install -e /src/learning_plasticity
+ADD . /src/local_lr
+RUN pip3 install -e /src/local_lr
