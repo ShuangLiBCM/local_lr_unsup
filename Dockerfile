@@ -7,5 +7,7 @@ RUN pip3 install imblearn
 RUN pip3 install xgboost
 RUN pip3 install scipy
 
+WORKDIR /src
+
 ADD . /src/local_lr
 RUN pip3 install -e /src/local_lr

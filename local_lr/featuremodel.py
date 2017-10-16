@@ -1,4 +1,3 @@
-__author__ = 'fabee'
 import numpy as np
 #from theano import tensor as T
 #import theano as th

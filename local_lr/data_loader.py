@@ -52,11 +52,25 @@ def load_Iris(whiten = True):
 # Generate laplace distributed data
 
 def load_laplace(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = False, whiten = True, rotation = False, Affine = False, iffigure = True):
+	"""Generate laplacian distributed data
+	    Args:
+	        loc: float, the position of the distribution peak. Default is 0.
+	        scale: float, the exponential decay. Default is 1
+	        sample_size: int, number of samples
+	        dimension: int, number of dimensions
+	        skew: boolean, whether to introduce skewness to the data
+	        whiten: boolean, whether to perform whitening on the data
+	        rotation: boolean, whether to introduce rotation
+	        Affine: boolean, whether to introduce affine transformation
+	        iffigure: whether to plot the sampled data
+	    Returns:
+	        s_rt_wt: sample_size * dimension, generated data
+	        w_rt_wt: 1 * dimension, ground truth independent direction to track transformation
+	"""
+
 	# Sample from the laplace distribution
 	s = np.random.laplace(loc,scale,[sample_size,dimension])  
 	w = np.eye(2)
-
-	# make data skewed with a half-squaring
 
 	# make data skewed with a half-squaring
 
@@ -66,14 +80,14 @@ def load_laplace(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = F
 	else:
 		title_ori = 'Original distribution'
 
-	# plot original distribution
-	if iffigure:
-		df = pd.DataFrame({'x':s[:,0],'y':s[:,1]})
-		g = sns.jointplot(x="x", y="y", data=df)
-		g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
-		# sns.plt.title(title_ori)
-		g.ax_joint.collections[0].set_alpha(0)
-		g.set_axis_labels("Dimension 1", "Dimension 2")
+	# # plot original distribution
+	# if iffigure:
+	# 	df = pd.DataFrame({'x':s[:,0],'y':s[:,1]})
+	# 	g = sns.jointplot(x="x", y="y", data=df)
+	# 	g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
+	# 	# sns.plt.title(title_ori)
+	# 	g.ax_joint.collections[0].set_alpha(0)
+	# 	g.set_axis_labels("Dimension 1", "Dimension 2")
 
 	# Conduct rotation and mixture
 	# Generate rotation matrix
@@ -90,14 +104,14 @@ def load_laplace(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = F
 	s_rt = np.dot(s,A)
 	w_rt = np.dot(w,A)
 
-	# plot mixed distribution
-	if iffigure:
-		df = pd.DataFrame({'x':s_rt[:,0],'y':s_rt[:,1]})
-		# sns.plt.title(title_trans)
-		g = sns.jointplot(x="x", y="y", data=df)
-		g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
-		g.ax_joint.collections[0].set_alpha(0)
-		g.set_axis_labels("Dimension 1", "Dimension 2")
+	# # plot mixed distribution
+	# if iffigure:
+	# 	df = pd.DataFrame({'x':s_rt[:,0],'y':s_rt[:,1]})
+	# 	# sns.plt.title(title_trans)
+	# 	g = sns.jointplot(x="x", y="y", data=df)
+	# 	g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
+	# 	g.ax_joint.collections[0].set_alpha(0)
+	# 	g.set_axis_labels("Dimension 1", "Dimension 2")
 
 	if whiten:
 		# Demean is critical, especially for skewed data
@@ -106,13 +120,9 @@ def load_laplace(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = F
 		s_rt_wt = np.dot(s_rt,ZCAMatrix)
 		w_rt_wt = np.dot(w_rt,ZCAMatrix)
 		# plot mixed distribution
-		if iffigure:
-			df = pd.DataFrame({'x':s_rt_wt[:,0],'y':s_rt_wt[:,1]})
-			g = sns.jointplot(x="x", y="y", data=df)
-			g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
-			g.ax_joint.collections[0].set_alpha(0)
-			g.set_axis_labels("Dimension 1", "Dimension 2")
-	else: 
+        if iffigure:
+            data_visu_2d(s_rt_wt)
+	else:
 		s_rt_wt = s_rt
 		w_rt_wt = w_rt
 
@@ -206,3 +216,11 @@ def zca_whitening_matrix(X):
     ZCAMatrix = np.dot(U, np.dot(np.diag(1.0/np.sqrt(S + epsilon)), U.T)) # [M x M]
     #ZCAMatrix = np.dot(U, np.diag(1.0/np.sqrt(S + epsilon))) # [M x M]
     return ZCAMatrix
+
+def data_visu_2d(data):
+    df = pd.DataFrame({'x': data[:, 0], 'y': data[:, 1]})
+    g = sns.jointplot(x="x", y="y", data=df)
+    g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
+    g.ax_joint.collections[0].set_alpha(0)
+    g.set_axis_labels("Dimension 1", "Dimension 2")
+

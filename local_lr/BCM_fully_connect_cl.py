@@ -8,7 +8,7 @@ from . import BCM_tf
 import time
 from . import data_loader
 import matplotlib.pyplot as plt
-from learning_plasticity import BCM_tf_cl
+from local_lr import BCM_tf_cl
 
 
 class BCM_fully_connect:
