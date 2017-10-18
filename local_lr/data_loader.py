@@ -53,19 +53,19 @@ def load_Iris(whiten = True):
 
 def load_laplace(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = False, whiten = True, rotation = False, Affine = False, iffigure = True):
 	"""Generate laplacian distributed data
-	    Args:
-	        loc: float, the position of the distribution peak. Default is 0.
-	        scale: float, the exponential decay. Default is 1
-	        sample_size: int, number of samples
-	        dimension: int, number of dimensions
-	        skew: boolean, whether to introduce skewness to the data
-	        whiten: boolean, whether to perform whitening on the data
-	        rotation: boolean, whether to introduce rotation
-	        Affine: boolean, whether to introduce affine transformation
-	        iffigure: whether to plot the sampled data
-	    Returns:
-	        s_rt_wt: sample_size * dimension, generated data
-	        w_rt_wt: 1 * dimension, ground truth independent direction to track transformation
+		Args:
+			loc: float, the position of the distribution peak. Default is 0.
+			scale: float, the exponential decay. Default is 1
+			sample_size: int, number of samples
+			dimension: int, number of dimensions
+			skew: boolean, whether to introduce skewness to the data
+			whiten: boolean, whether to perform whitening on the data
+			rotation: boolean, whether to introduce rotation
+			Affine: boolean, whether to introduce affine transformation
+			iffigure: whether to plot the sampled data
+		Returns:
+			s_rt_wt: sample_size * dimension, generated data
+			w_rt_wt: 1 * dimension, ground truth independent direction to track transformation
 	"""
 
 	# Sample from the laplace distribution
@@ -120,11 +120,12 @@ def load_laplace(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = F
 		s_rt_wt = np.dot(s_rt,ZCAMatrix)
 		w_rt_wt = np.dot(w_rt,ZCAMatrix)
 		# plot mixed distribution
-        if iffigure:
-            data_visu_2d(s_rt_wt)
 	else:
 		s_rt_wt = s_rt
 		w_rt_wt = w_rt
+
+	if iffigure:
+		data_visu_2d(s_rt_wt)
 
 	return s_rt_wt, w_rt_wt
 		
@@ -196,31 +197,31 @@ def load_uniform(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = F
 
 # Perform zca whitening
 def zca_whitening_matrix(X):
-    """
-    Function to compute ZCA whitening matrix (aka Mahalanobis whitening).
-    INPUT:  X: [M x N] matrix.
-        Rows: Variables
-        Columns: Observations
-    OUTPUT: ZCAMatrix: [M x M] matrix
-    """
-    # Covariance matrix [column-wise variables]: Sigma = (X-mu)' * (X-mu) / N
-    sigma = np.cov(X, rowvar=True) # [M x M]
-    # Singular Value Decomposition. X = U * np.diag(S) * V
-    U,S,V = np.linalg.svd(sigma)
-        # U: [M x M] eigenvectors of sigma.
-        # S: [M x 1] eigenvalues of sigma.
-        # V: [M x M] transpose of U
-    # Whitening constant: prevents division by zero
-    epsilon = 1e-5
-    # ZCA Whitening matrix: U * Lambda * U'
-    ZCAMatrix = np.dot(U, np.dot(np.diag(1.0/np.sqrt(S + epsilon)), U.T)) # [M x M]
-    #ZCAMatrix = np.dot(U, np.diag(1.0/np.sqrt(S + epsilon))) # [M x M]
-    return ZCAMatrix
+	"""
+	Function to compute ZCA whitening matrix (aka Mahalanobis whitening).
+	INPUT:  X: [M x N] matrix.
+		Rows: Variables
+		Columns: Observations
+	OUTPUT: ZCAMatrix: [M x M] matrix
+	"""
+	# Covariance matrix [column-wise variables]: Sigma = (X-mu)' * (X-mu) / N
+	sigma = np.cov(X, rowvar=True) # [M x M]
+	# Singular Value Decomposition. X = U * np.diag(S) * V
+	U,S,V = np.linalg.svd(sigma)
+		# U: [M x M] eigenvectors of sigma.
+		# S: [M x 1] eigenvalues of sigma.
+		# V: [M x M] transpose of U
+	# Whitening constant: prevents division by zero
+	epsilon = 1e-5
+	# ZCA Whitening matrix: U * Lambda * U'
+	ZCAMatrix = np.dot(U, np.dot(np.diag(1.0/np.sqrt(S + epsilon)), U.T)) # [M x M]
+	#ZCAMatrix = np.dot(U, np.diag(1.0/np.sqrt(S + epsilon))) # [M x M]
+	return ZCAMatrix
 
 def data_visu_2d(data):
-    df = pd.DataFrame({'x': data[:, 0], 'y': data[:, 1]})
-    g = sns.jointplot(x="x", y="y", data=df)
-    g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
-    g.ax_joint.collections[0].set_alpha(0)
-    g.set_axis_labels("Dimension 1", "Dimension 2")
+	df = pd.DataFrame({'x': data[:, 0], 'y': data[:, 1]})
+	g = sns.jointplot(x="x", y="y", data=df)
+	g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
+	g.ax_joint.collections[0].set_alpha(0)
+	g.set_axis_labels("Dimension 1", "Dimension 2")
 
