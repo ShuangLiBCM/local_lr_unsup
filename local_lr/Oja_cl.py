@@ -68,7 +68,8 @@ def oja(eta=0.01, act=None):
         """
         w = kwargs['w']
         dw = x.T.dot(y) - w * np.sum(y.T.dot(y) * np.eye(w.shape[1]), keepdims=1, axis=0).reshape(1,-1)
-            
+        # dw = x.T.dot(y) - w * y.T.dot(y)
+        
         w = w + eta * dw
         return {'w': w}
 
