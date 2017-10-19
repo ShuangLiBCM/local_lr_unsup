@@ -130,8 +130,9 @@ def load_laplace(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,seed=0,s
 
 	return s_rt_wt, w_rt_wt
 		
-def load_uniform(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = False, whiten = True, rotation = False, Affine = False, iffigure = True):
+def load_uniform(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,seed = 0, skew = False, whiten = True, rotation = False, Affine = False, iffigure = True):
 	# Sample from the laplace distribution
+	np.random.seed(seed)    
 	s = np.random.uniform(loc,scale,[sample_size,dimension])  
 	w = np.eye(2)
 	# make data skewed with a half-squaring
@@ -143,16 +144,7 @@ def load_uniform(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = F
 		title_ori = 'Skewed original distribution'
 	else:
 		title_ori = 'Original distribution'
-
-	# plot original distribution
-	if iffigure:
-		df = pd.DataFrame({'x':s[:,0],'y':s[:,1]})
-		g = sns.jointplot(x="x", y="y", data=df)
-		g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
-		# sns.plt.title(title_ori)
-		g.ax_joint.collections[0].set_alpha(0)
-		g.set_axis_labels("Dimension 1", "Dimension 2")
-
+        
 	# Conduct rotation and mixture
 	# Generate rotation matrix
 	A = np.eye(2)
@@ -167,32 +159,18 @@ def load_uniform(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,skew = F
 
 	s_rt = np.dot(s,A)
 	w_rt = np.dot(w,A)
-
-	# plot mixed distribution
-	if iffigure:
-		df = pd.DataFrame({'x':s_rt[:,0],'y':s_rt[:,1]})
-		# sns.plt.title(title_trans)
-		g = sns.jointplot(x="x", y="y", data=df)
-		g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
-		g.ax_joint.collections[0].set_alpha(0)
-		g.set_axis_labels("Dimension 1", "Dimension 2")
-
 	if whiten:
 		# Demean is critical, especially for skewed data
 		s_rt = s_rt - s_rt.mean(axis = 0)
 		ZCAMatrix = zca_whitening_matrix(s_rt.T)
 		s_rt_wt = np.dot(s_rt,ZCAMatrix)
 		w_rt_wt = np.dot(w_rt,ZCAMatrix)
-		# plot mixed distribution
-		if iffigure:
-			df = pd.DataFrame({'x':s_rt_wt[:,0],'y':s_rt_wt[:,1]})
-			g = sns.jointplot(x="x", y="y", data=df)
-			g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
-			g.ax_joint.collections[0].set_alpha(0)
-			g.set_axis_labels("Dimension 1", "Dimension 2")
 	else: 
 		s_rt_wt = s_rt
 		w_rt_wt = w_rt
+    
+	if iffigure:
+		data_visu_2d(s_rt_wt)
 
 	return s_rt_wt, w_rt_wt 
 
