@@ -36,7 +36,7 @@ def get_act(act):
         return tanh, tanh_deriv
     return linear, linear_deriv
 
-def qbcm(eta=0.001, decay=0.0, p=2, tau=100, act=None, batch_size=1,ifnorm=False):
+def qbcm(eta=0.001, decay=0.0, p=2, tau=100, act=None, batch_size=1):
     """One layer BCM network.
     Args:
         eta: learning rate on weights.
@@ -97,9 +97,6 @@ def qbcm(eta=0.001, decay=0.0, p=2, tau=100, act=None, batch_size=1,ifnorm=False
             else:
                 y_thres_mult = np.multiply(dy, np.multiply(y, y_thres_diff))
                 w = w + eta * xi.T.dot(y_thres_mult) - eta * decay * w
-            
-            if ifnorm:
-                w = normalize(w, axis=0)
 
             thres = ema(x=thres, y=y, power=p)
                             
