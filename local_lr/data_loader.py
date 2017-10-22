@@ -2,13 +2,12 @@
 # Implemented Iris data and laplace data
 
 import numpy as np
-import matplotlib as mpl
 import matplotlib.pyplot as plt
-from time import time
 import seaborn as sns
-from sklearn import datasets
+from tensorflow.examples.tutorials.mnist import input_data
 from scipy import stats
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
 # Import Iris data from sklean
 # This data sets consists of 3 different types of irises’ (Setosa, Versicolour, and Virginica) petal and sepal length, stored in a 150x4 numpy.ndarray
@@ -81,15 +80,6 @@ def load_laplace(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,seed=0,s
 	else:
 		title_ori = 'Original distribution'
 
-	# # plot original distribution
-	# if iffigure:
-	# 	df = pd.DataFrame({'x':s[:,0],'y':s[:,1]})
-	# 	g = sns.jointplot(x="x", y="y", data=df)
-	# 	g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
-	# 	# sns.plt.title(title_ori)
-	# 	g.ax_joint.collections[0].set_alpha(0)
-	# 	g.set_axis_labels("Dimension 1", "Dimension 2")
-
 	# Conduct rotation and mixture
 	# Generate rotation matrix
 	A = np.eye(2)
@@ -104,15 +94,6 @@ def load_laplace(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,seed=0,s
 
 	s_rt = np.dot(s,A)
 	w_rt = np.dot(w,A)
-
-	# # plot mixed distribution
-	# if iffigure:
-	# 	df = pd.DataFrame({'x':s_rt[:,0],'y':s_rt[:,1]})
-	# 	# sns.plt.title(title_trans)
-	# 	g = sns.jointplot(x="x", y="y", data=df)
-	# 	g.plot_joint(plt.scatter, c="gray", s=10, linewidth=.1, marker=".")
-	# 	g.ax_joint.collections[0].set_alpha(0)
-	# 	g.set_axis_labels("Dimension 1", "Dimension 2")
 
 	if whiten:
 		# Demean is critical, especially for skewed data
@@ -173,6 +154,28 @@ def load_uniform(loc = 0, scale = 1, sample_size = 1000 , dimension = 2,seed = 0
 		data_visu_2d(s_rt_wt)
 
 	return s_rt_wt, w_rt_wt 
+
+
+def load_mnist(if_demean=0, if_whiten=0, if_one_hot=True):
+	# Create simple interface to generate mnist data
+	mnist = input_data.read_data_sets("\tmp\data", one_hot=if_one_hot)
+
+	X_train = mnist.train.images
+	y_train = mnist.train.labels
+	X_test = mnist.test.images
+	y_test = mnist.test.labels
+
+	if if_demean:
+		demeaner = StandardScaler(with_std=False)
+		X_train_demeaned = demeaner.fit_transform(X_train)
+		X_test_demeaned = demeaner.transform(X_test)
+		return {X_train: X_train_demeaned, X_test: X_test_demeaned,y_train:y_train,y_test:y_test}
+
+	if if_whiten:
+		zca_matrix = zca_whitening_matrix(X_train.T)
+		X_train_whitened = X_train.dot(zca_matrix)
+		X_test_whitened = X_test.dot(zca_matrix)
+		return {X_train: X_train_whitened, X_test: X_test_whitened,y_train:y_train,y_test:y_test}
 
 # Perform zca whitening
 def zca_whitening_matrix(X):
