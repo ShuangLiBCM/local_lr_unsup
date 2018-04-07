@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="009303d4-1280-40ed-b55c-33fc788de802" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local_lr/data_loader.py" afterPath="$PROJECT_DIR$/local_lr/data_loader.py" />
+      <change afterPath="$PROJECT_DIR$/local_lr/cifar10_input.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile_GPU" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile_GPU" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <ignored path="local_lr_unsup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,20 +20,28 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="local_lr_unsup" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="autoencoder_recon.py" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="autoencoder_recon.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local_lr/autoencoder_recon.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
               <folding>
                 <element signature="e#170#193#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cifar10_input.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/local_lr/cifar10_input.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1672">
+              <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
             </state>
           </provider>
         </entry>
@@ -59,79 +70,62 @@
         <option value="$PROJECT_DIR$/local_lr/autoencoder_GD.py" />
         <option value="$PROJECT_DIR$/local_lr/data_loader.py" />
         <option value="$PROJECT_DIR$/local_lr/autoencoder_recon.py" />
+        <option value="$PROJECT_DIR$/local_lr/cifar10_input.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1433" />
-    <option name="height" value="832" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1713" />
+    <option name="y" value="-4" />
+    <option name="width" value="1396" />
+    <option name="height" value="1012" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local_lr_unsup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local_lr_unsup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local_lr_unsup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local_lr_unsup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local_lr_unsup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local_lr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="local_lr_unsup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="local_lr_unsup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="local_lr_unsup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="local_lr_unsup" type="462c0819:PsiDirectoryNode" />
+              <item name="CIFAR10_notebook" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="local_lr_unsup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="local_lr_unsup" type="462c0819:PsiDirectoryNode" />
+              <item name="local_lr" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ignore_missing_gitignore" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -269,9 +263,6 @@
       <method />
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -286,26 +277,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1433" height="832" extended-state="6" />
+    <frame x="1919" y="-11" width="1922" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24982554" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18125" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -319,22 +310,38 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/local_lr/autoencoder_recon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="e#170#193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local_lr/cifar10_input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2432">
+          <caret line="135" column="29" selection-start-line="135" selection-start-column="21" selection-end-line="135" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local_lr/autoencoder_recon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#170#193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/local_lr/QBCM_tf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
           <caret line="33" column="65" selection-start-line="33" selection-start-column="65" selection-end-line="33" selection-end-column="65" />
-          <folding>
-            <marker date="1508626956000" expanded="false" signature="15:57" ph="import ..." />
-            <marker date="1508626956000" expanded="true" signature="163:850" ph="..." />
-            <marker date="1508626956000" expanded="true" signature="168:556" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1508626956000" expanded="true" signature="884:1065" ph="..." />
-            <marker date="1508626956000" expanded="true" signature="1086:1357" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -356,56 +363,28 @@
     <entry file="file://$PROJECT_DIR$/local_lr/data_loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3002">
-          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local_lr/bcm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local_lr/BCM_mat_cl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local_lr/BCM_tf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local_lr/BCM_tf_running.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="158" selection-start-line="158" selection-end-line="158" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local_lr/BCM_tf_cl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local_lr/BCM_fully_connected_feed.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local_lr/BCM_fully_connect_cl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -441,7 +420,7 @@
     <entry file="file://$PROJECT_DIR$/local_lr/run_bcm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -449,103 +428,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="33" column="65" selection-start-line="33" selection-start-column="65" selection-end-line="33" selection-end-column="65" />
-          <folding>
-            <marker date="1508626956000" expanded="false" signature="15:57" ph="import ..." />
-            <marker date="1508626956000" expanded="true" signature="163:850" ph="..." />
-            <marker date="1508626956000" expanded="true" signature="168:556" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1508626956000" expanded="true" signature="884:1065" ph="..." />
-            <marker date="1508626956000" expanded="true" signature="1086:1357" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local_lr/autoencoder_GD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="65" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local_lr/featuremodel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1508022103000" expanded="true" signature="0:566" ph="import ..." />
-            <marker date="1508022103000" expanded="true" signature="19:71" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="587:651" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="670:906" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="732:814" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="824:906" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="968:2662" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="1023:1380" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="1196:1380" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="1500:2170" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="1538:2170" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="2197:2557" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="2807:3689" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="3217:3490" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="3511:3624" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="3629:3672" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="3712:5251" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="3763:3898" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="3924:4535" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="4264:4415" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="4300:4415" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="4429:4516" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="4564:4680" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="4741:5160" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="4929:5131" ph="..." />
-            <marker date="1508022103000" expanded="true" signature="5196:5251" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/local_lr/autoencoder_GD.py" />
     <entry file="file://$PROJECT_DIR$/local_lr/data_loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="186" column="37" selection-start-line="186" selection-start-column="37" selection-end-line="186" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CIFAR10_notebook/Project outline.ipynb" />
+    <entry file="file://$PROJECT_DIR$/local_lr/autoencoder_recon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding>
-            <marker date="1508699721000" expanded="true" signature="0:90" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="92:316" ph="import ..." />
-            <marker date="1508699721000" expanded="true" signature="318:578" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="608:1762" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="1056:1134" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="1961:3815" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="1963:2717" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1508699721000" expanded="true" signature="2908:3001" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="3049:3107" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="3136:3300" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="3314:3406" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="3481:3681" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="3716:3750" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="3981:5107" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="4124:4205" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="4216:4309" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="4365:4423" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="4452:4616" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="4630:4722" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="4796:4996" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="5003:5038" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="5169:5899" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="5420:5656" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="5672:5899" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="5953:6796" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="5958:6166" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1508699721000" expanded="true" signature="6390:6556" ph="..." />
-            <marker date="1508699721000" expanded="true" signature="6821:7091" ph="..." />
+            <element signature="e#170#193#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local_lr/autoencoder_recon.py">
+    <entry file="file://$PROJECT_DIR$/local_lr/cifar10_input.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#170#193#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1672">
+          <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
         </state>
       </provider>
     </entry>

@@ -13,4 +13,4 @@ services:
     - .:/src/local_lr
     - .:/notebooks
     - ./archive:/tensorboard
-    # - /volumes/lab/shuang_data:/data
+    - /mnt/lab/shuang_data:/data

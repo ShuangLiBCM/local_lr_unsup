@@ -6,12 +6,8 @@ RUN pip3 install pandas_datareader
 RUN pip3 install imblearn
 RUN pip3 install xgboost
 RUN pip3 install scipy
-RUN pip3 install git+https://github.com/datajoint/datajoint-python.git
 
 WORKDIR /src
-
-RUN git clone https://github.com/atlab/atflow.git &&\
-    pip3 install /src/atflow
 
 ADD . /src/local_lr
 RUN pip3 install -e /src/local_lr
