@@ -88,7 +88,7 @@ def _activation_summary(x):
                                        tf.nn.zero_fraction(x))
 
 
-def _variable_on_cpu(name, shape, initializer):
+def _variable_on_cpu(name, shape, initializer, trainable=True):
   """Helper to create a Variable stored on CPU memory.
   Args:
     name: name of the variable
@@ -99,11 +99,11 @@ def _variable_on_cpu(name, shape, initializer):
   """
   with tf.device('/cpu:0'):
     dtype = tf.float16 if FLAGS.use_fp16 else tf.float32
-    var = tf.get_variable(name, shape, initializer=initializer, dtype=dtype)
+    var = tf.get_variable(name, shape, initializer=initializer, trainable=trainable, dtype=dtype)
   return var
 
 
-def _variable_with_weight_decay(name, shape, stddev, wd):
+def _variable_with_weight_decay(name, shape, stddev, wd, trainable=True):
   """Helper to create an initialized Variable with weight decay.
   Note that the Variable is initialized with a truncated normal distribution.
   A weight decay is added only if one is specified.
@@ -120,7 +120,7 @@ def _variable_with_weight_decay(name, shape, stddev, wd):
   var = _variable_on_cpu(
       name,
       shape,
-      tf.truncated_normal_initializer(stddev=stddev, dtype=dtype))
+      tf.truncated_normal_initializer(stddev=stddev, dtype=dtype), trainable=trainable)
   if wd is not None:
     weight_decay = tf.multiply(tf.nn.l2_loss(var), wd, name='weight_loss')
     tf.add_to_collection('losses', weight_decay)
@@ -185,7 +185,7 @@ def inference(images):
     kernel = _variable_with_weight_decay('weights',
                                          shape=[5, 5, 3, 64],
                                          stddev=5e-2,
-                                         wd=None)
+                                         wd=None, trainable=False)
     conv = tf.nn.conv2d(images, kernel, [1, 1, 1, 1], padding='SAME')
     biases = _variable_on_cpu('biases', [64], tf.constant_initializer(0.0))
     pre_activation = tf.nn.bias_add(conv, biases)
@@ -204,7 +204,7 @@ def inference(images):
     kernel = _variable_with_weight_decay('weights',
                                          shape=[5, 5, 64, 64],
                                          stddev=5e-2,
-                                         wd=None)
+                                         wd=None, trainable=False)
     conv = tf.nn.conv2d(norm1, kernel, [1, 1, 1, 1], padding='SAME')
     biases = _variable_on_cpu('biases', [64], tf.constant_initializer(0.1))
     pre_activation = tf.nn.bias_add(conv, biases)
